@@ -25,11 +25,11 @@ class ChatListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupCancellable()
+        setupObserver()
         chatListViewModel.loadChatRoom()
     }
     
-    private func setupCancellable() {
+    private func setupObserver() {
         cancellable = chatListViewModel.$rooms.sink(){ rooms in
             self.rooms = rooms
         }
@@ -54,5 +54,12 @@ class ChatListTableViewController: UITableViewController {
         cell.textLabel?.text = room.name
         cell.detailTextLabel?.text = "\(room.unreadCount) message unread"
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let room = rooms[indexPath.row]
+        let chatViewController = ChatViewController()
+        chatViewController.room = room
+        self.navigationController?.pushViewController(chatViewController, animated: true)
     }
 }

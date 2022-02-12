@@ -23,7 +23,8 @@ class LoginViewController: UIViewController {
         guard let userName = userNameField.text, let userKey = userKeyField.text, let userId = userIdField.text else {return}
         
         QiscusCore.setUser(userId: userId, userKey: userKey, username: userName, avatarURL: nil, extras: nil, onSuccess: { (_) in
-
+            let chatListViewController = ChatListTableViewController()
+            self.navigationController?.pushViewController(chatListViewController, animated: true)
         }) { (error) in
             let alert = UIAlertController(title: "Failed to Login?", message: String(describing: error.message), preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Try Again", style: .cancel, handler: nil))
