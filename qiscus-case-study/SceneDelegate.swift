@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import QiscusCore
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -18,11 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let window = UIWindow(windowScene: windowScene)
-        let navigationController = UINavigationController(rootViewController: ChatListTableViewController())
-        window.rootViewController = (navigationController)
-        self.window = window
-        window.makeKeyAndVisible()
+        self.window = UIWindow(windowScene: windowScene)
+        auth()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -53,6 +51,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
+
+}
+
+extension SceneDelegate {
+    // Auth
+    func auth() {
+        let target : UIViewController
+        if QiscusCore.hasSetupUser() {
+            target = ChatListTableViewController()
+        }else {
+            target = LoginViewController()
+        }
+        let navbar = UINavigationController()
+        navbar.viewControllers = [target]
+        self.window?.rootViewController = navbar
+        self.window?.makeKeyAndVisible()
+    }
 
 }
 

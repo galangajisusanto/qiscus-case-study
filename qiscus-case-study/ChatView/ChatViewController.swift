@@ -71,6 +71,7 @@ class ChatViewController: UIViewController {
         
         guard let roomId = room?.id else {return}
         chatViewModel.sendMessage(message: comment, roomId: roomId)
+        commentTextArea.text = ""
     }
     
     func setRoomDelegate(){
@@ -123,7 +124,9 @@ extension ChatViewController: UITableViewDataSource {
 
 extension ChatViewController: QiscusCoreRoomDelegate {
     func onMessageReceived(message: CommentModel) {
-            
+        comments.append(message)
+        let indexPath = IndexPath(item: comments.count, section: 0)
+        commentTable.reloadRows(at: [indexPath], with: .top)
     }
     
     func onMessageUpdated(message: CommentModel) {

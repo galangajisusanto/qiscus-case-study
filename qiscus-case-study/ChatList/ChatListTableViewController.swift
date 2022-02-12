@@ -27,6 +27,14 @@ class ChatListTableViewController: UITableViewController {
         super.viewDidLoad()
         setupObserver()
         chatListViewModel.loadChatRoom()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped))
+    }
+    
+    @objc func logoutTapped() {
+        QiscusCore.clearUser { (error) in
+            let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate
+            sceneDelegate?.auth()
+        }
     }
     
     private func setupObserver() {
