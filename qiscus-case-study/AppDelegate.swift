@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import QiscusCore
+
+let APP_ID : String = "sdksample"
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        QiscusCore.enableDebugMode(value: true)
+        QiscusCore.setup(AppID: APP_ID)
         return true
     }
 
