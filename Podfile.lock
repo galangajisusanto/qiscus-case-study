@@ -1,0 +1,34 @@
+PODS:
+  - CocoaAsyncSocket (7.6.5)
+  - CocoaMQTT (1.3.0-rc.2):
+    - CocoaMQTT/Core (= 1.3.0-rc.2)
+  - CocoaMQTT/Core (1.3.0-rc.2):
+    - CocoaAsyncSocket (~> 7.6.3)
+  - QiscusCore (1.6.0):
+    - QiscusRealtime (= 1.4.3)
+    - SwiftyJSON
+  - QiscusRealtime (1.4.3):
+    - CocoaMQTT (= 1.3.0-rc.2)
+  - SwiftyJSON (5.0.1)
+
+DEPENDENCIES:
+  - QiscusCore
+
+SPEC REPOS:
+  trunk:
+    - CocoaAsyncSocket
+    - CocoaMQTT
+    - QiscusCore
+    - QiscusRealtime
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
+  CocoaMQTT: 77d92d98aeb18c719bc3b0baae73541ba249a9ea
+  QiscusCore: 650da9ea30f644f57b78e249e89b13a6541eb267
+  QiscusRealtime: 178f7aac184962c319b5ab9e56cc5a8aeb5ebcdb
+  SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
+
+PODFILE CHECKSUM: f77ce4b619e9d411c66df340c7d033c702e717b4
+
+COCOAPODS: 1.11.2

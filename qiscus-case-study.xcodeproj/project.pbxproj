@@ -13,6 +13,7 @@
 		0375570E27B6A047009A12E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0375570C27B6A047009A12E7 /* Main.storyboard */; };
 		0375571027B6A049009A12E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0375570F27B6A049009A12E7 /* Assets.xcassets */; };
 		0375571327B6A049009A12E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0375571127B6A049009A12E7 /* LaunchScreen.storyboard */; };
+		7A296B8F395E1D4F2FDD6D64 /* Pods_qiscus_case_study.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4C66A8431519676ADB7F9E0 /* Pods_qiscus_case_study.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,9 @@
 		0375570F27B6A049009A12E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0375571227B6A049009A12E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0375571427B6A049009A12E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44FC9449A75932378857F9AC /* Pods-qiscus-case-study.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qiscus-case-study.release.xcconfig"; path = "Target Support Files/Pods-qiscus-case-study/Pods-qiscus-case-study.release.xcconfig"; sourceTree = "<group>"; };
+		6BACA587E16D6ED5AECE976A /* Pods-qiscus-case-study.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qiscus-case-study.debug.xcconfig"; path = "Target Support Files/Pods-qiscus-case-study/Pods-qiscus-case-study.debug.xcconfig"; sourceTree = "<group>"; };
+		C4C66A8431519676ADB7F9E0 /* Pods_qiscus_case_study.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_qiscus_case_study.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A296B8F395E1D4F2FDD6D64 /* Pods_qiscus_case_study.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,8 @@
 			children = (
 				0375570527B6A047009A12E7 /* qiscus-case-study */,
 				0375570427B6A047009A12E7 /* Products */,
+				420A05312C680A47760E1D35 /* Pods */,
+				F884C9A61EF8A3E96931EBE4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +74,24 @@
 			path = "qiscus-case-study";
 			sourceTree = "<group>";
 		};
+		420A05312C680A47760E1D35 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6BACA587E16D6ED5AECE976A /* Pods-qiscus-case-study.debug.xcconfig */,
+				44FC9449A75932378857F9AC /* Pods-qiscus-case-study.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F884C9A61EF8A3E96931EBE4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C4C66A8431519676ADB7F9E0 /* Pods_qiscus_case_study.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0375571727B6A049009A12E7 /* Build configuration list for PBXNativeTarget "qiscus-case-study" */;
 			buildPhases = (
+				3B26C41A0181C2E9267A3820 /* [CP] Check Pods Manifest.lock */,
 				037556FF27B6A047009A12E7 /* Sources */,
 				0375570027B6A047009A12E7 /* Frameworks */,
 				0375570127B6A047009A12E7 /* Resources */,
+				075F693D167AB851F2600393 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		075F693D167AB851F2600393 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-qiscus-case-study/Pods-qiscus-case-study-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-qiscus-case-study/Pods-qiscus-case-study-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-qiscus-case-study/Pods-qiscus-case-study-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3B26C41A0181C2E9267A3820 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-qiscus-case-study-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		037556FF27B6A047009A12E7 /* Sources */ = {
@@ -284,6 +353,7 @@
 		};
 		0375571827B6A049009A12E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6BACA587E16D6ED5AECE976A /* Pods-qiscus-case-study.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -312,6 +382,7 @@
 		};
 		0375571927B6A049009A12E7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44FC9449A75932378857F9AC /* Pods-qiscus-case-study.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
