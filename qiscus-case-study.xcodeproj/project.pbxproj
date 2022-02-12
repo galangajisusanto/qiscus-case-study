@@ -13,6 +13,8 @@
 		0375570E27B6A047009A12E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0375570C27B6A047009A12E7 /* Main.storyboard */; };
 		0375571027B6A049009A12E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0375570F27B6A049009A12E7 /* Assets.xcassets */; };
 		0375571327B6A049009A12E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0375571127B6A049009A12E7 /* LaunchScreen.storyboard */; };
+		039F298E27B79D2700D82F05 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039F298C27B79D2700D82F05 /* LoginViewController.swift */; };
+		039F298F27B79D2700D82F05 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 039F298D27B79D2700D82F05 /* LoginViewController.xib */; };
 		7A296B8F395E1D4F2FDD6D64 /* Pods_qiscus_case_study.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4C66A8431519676ADB7F9E0 /* Pods_qiscus_case_study.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +27,8 @@
 		0375570F27B6A049009A12E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0375571227B6A049009A12E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0375571427B6A049009A12E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		039F298C27B79D2700D82F05 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		039F298D27B79D2700D82F05 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		44FC9449A75932378857F9AC /* Pods-qiscus-case-study.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qiscus-case-study.release.xcconfig"; path = "Target Support Files/Pods-qiscus-case-study/Pods-qiscus-case-study.release.xcconfig"; sourceTree = "<group>"; };
 		6BACA587E16D6ED5AECE976A /* Pods-qiscus-case-study.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qiscus-case-study.debug.xcconfig"; path = "Target Support Files/Pods-qiscus-case-study/Pods-qiscus-case-study.debug.xcconfig"; sourceTree = "<group>"; };
 		C4C66A8431519676ADB7F9E0 /* Pods_qiscus_case_study.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_qiscus_case_study.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +67,9 @@
 		0375570527B6A047009A12E7 /* qiscus-case-study */ = {
 			isa = PBXGroup;
 			children = (
+				039F298727B79CB700D82F05 /* ChatView */,
+				039F298627B79C9C00D82F05 /* ChatList */,
+				039F298527B79C9400D82F05 /* Login */,
 				0375570627B6A047009A12E7 /* AppDelegate.swift */,
 				0375570827B6A047009A12E7 /* SceneDelegate.swift */,
 				0375570A27B6A047009A12E7 /* ViewController.swift */,
@@ -74,13 +81,35 @@
 			path = "qiscus-case-study";
 			sourceTree = "<group>";
 		};
+		039F298527B79C9400D82F05 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				039F298C27B79D2700D82F05 /* LoginViewController.swift */,
+				039F298D27B79D2700D82F05 /* LoginViewController.xib */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		039F298627B79C9C00D82F05 /* ChatList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ChatList;
+			sourceTree = "<group>";
+		};
+		039F298727B79CB700D82F05 /* ChatView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ChatView;
+			sourceTree = "<group>";
+		};
 		420A05312C680A47760E1D35 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				6BACA587E16D6ED5AECE976A /* Pods-qiscus-case-study.debug.xcconfig */,
 				44FC9449A75932378857F9AC /* Pods-qiscus-case-study.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -152,6 +181,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				039F298F27B79D2700D82F05 /* LoginViewController.xib in Resources */,
 				0375571327B6A049009A12E7 /* LaunchScreen.storyboard in Resources */,
 				0375571027B6A049009A12E7 /* Assets.xcassets in Resources */,
 				0375570E27B6A047009A12E7 /* Main.storyboard in Resources */,
@@ -209,6 +239,7 @@
 			files = (
 				0375570B27B6A047009A12E7 /* ViewController.swift in Sources */,
 				0375570727B6A047009A12E7 /* AppDelegate.swift in Sources */,
+				039F298E27B79D2700D82F05 /* LoginViewController.swift in Sources */,
 				0375570927B6A047009A12E7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
