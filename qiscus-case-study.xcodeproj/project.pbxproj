@@ -24,6 +24,11 @@
 		039F298F27B79D2700D82F05 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 039F298D27B79D2700D82F05 /* LoginViewController.xib */; };
 		03EA66BC27B88E1500A71F1C /* ChatListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EA66BA27B88E1500A71F1C /* ChatListTableViewCell.swift */; };
 		03EA66BD27B88E1500A71F1C /* ChatListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03EA66BB27B88E1500A71F1C /* ChatListTableViewCell.xib */; };
+		03EA66C127B8A8D500A71F1C /* RightTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EA66BF27B8A8D500A71F1C /* RightTextTableViewCell.swift */; };
+		03EA66C227B8A8D500A71F1C /* RightTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03EA66C027B8A8D500A71F1C /* RightTextTableViewCell.xib */; };
+		03EA66C427B8AA8100A71F1C /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EA66C327B8AA8100A71F1C /* PaddingLabel.swift */; };
+		03EA66C727B8BAB700A71F1C /* LeftTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EA66C527B8BAB700A71F1C /* LeftTextTableViewCell.swift */; };
+		03EA66C827B8BAB700A71F1C /* LeftTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03EA66C627B8BAB700A71F1C /* LeftTextTableViewCell.xib */; };
 		7A296B8F395E1D4F2FDD6D64 /* Pods_qiscus_case_study.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4C66A8431519676ADB7F9E0 /* Pods_qiscus_case_study.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +52,11 @@
 		039F298D27B79D2700D82F05 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		03EA66BA27B88E1500A71F1C /* ChatListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewCell.swift; sourceTree = "<group>"; };
 		03EA66BB27B88E1500A71F1C /* ChatListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatListTableViewCell.xib; sourceTree = "<group>"; };
+		03EA66BF27B8A8D500A71F1C /* RightTextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightTextTableViewCell.swift; sourceTree = "<group>"; };
+		03EA66C027B8A8D500A71F1C /* RightTextTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RightTextTableViewCell.xib; sourceTree = "<group>"; };
+		03EA66C327B8AA8100A71F1C /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		03EA66C527B8BAB700A71F1C /* LeftTextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftTextTableViewCell.swift; sourceTree = "<group>"; };
+		03EA66C627B8BAB700A71F1C /* LeftTextTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftTextTableViewCell.xib; sourceTree = "<group>"; };
 		44FC9449A75932378857F9AC /* Pods-qiscus-case-study.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qiscus-case-study.release.xcconfig"; path = "Target Support Files/Pods-qiscus-case-study/Pods-qiscus-case-study.release.xcconfig"; sourceTree = "<group>"; };
 		6BACA587E16D6ED5AECE976A /* Pods-qiscus-case-study.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qiscus-case-study.debug.xcconfig"; path = "Target Support Files/Pods-qiscus-case-study/Pods-qiscus-case-study.debug.xcconfig"; sourceTree = "<group>"; };
 		C4C66A8431519676ADB7F9E0 /* Pods_qiscus_case_study.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_qiscus_case_study.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				034724F927B81B7F0094E2C4 /* CommentModel+Ext.swift */,
+				03EA66C327B8AA8100A71F1C /* PaddingLabel.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -131,6 +142,7 @@
 		039F298727B79CB700D82F05 /* ChatView */ = {
 			isa = PBXGroup;
 			children = (
+				03EA66BE27B89BE000A71F1C /* Cell */,
 				034724F227B7C86A0094E2C4 /* ChatViewController.swift */,
 				034724F327B7C86A0094E2C4 /* ChatViewController.xib */,
 				034724F627B7D8270094E2C4 /* ChatViewModel.swift */,
@@ -143,6 +155,17 @@
 			children = (
 				03EA66BA27B88E1500A71F1C /* ChatListTableViewCell.swift */,
 				03EA66BB27B88E1500A71F1C /* ChatListTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		03EA66BE27B89BE000A71F1C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				03EA66BF27B8A8D500A71F1C /* RightTextTableViewCell.swift */,
+				03EA66C027B8A8D500A71F1C /* RightTextTableViewCell.xib */,
+				03EA66C527B8BAB700A71F1C /* LeftTextTableViewCell.swift */,
+				03EA66C627B8BAB700A71F1C /* LeftTextTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -225,8 +248,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				039F298F27B79D2700D82F05 /* LoginViewController.xib in Resources */,
+				03EA66C227B8A8D500A71F1C /* RightTextTableViewCell.xib in Resources */,
 				034724EF27B7B29C0094E2C4 /* ChatListTableViewController.xib in Resources */,
 				03EA66BD27B88E1500A71F1C /* ChatListTableViewCell.xib in Resources */,
+				03EA66C827B8BAB700A71F1C /* LeftTextTableViewCell.xib in Resources */,
 				034724F527B7C86A0094E2C4 /* ChatViewController.xib in Resources */,
 				0375571327B6A049009A12E7 /* LaunchScreen.storyboard in Resources */,
 				0375571027B6A049009A12E7 /* Assets.xcassets in Resources */,
@@ -283,7 +308,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03EA66C727B8BAB700A71F1C /* LeftTextTableViewCell.swift in Sources */,
+				03EA66C427B8AA8100A71F1C /* PaddingLabel.swift in Sources */,
 				034724F127B7B44F0094E2C4 /* ChatListViewModel.swift in Sources */,
+				03EA66C127B8A8D500A71F1C /* RightTextTableViewCell.swift in Sources */,
 				03EA66BC27B88E1500A71F1C /* ChatListTableViewCell.swift in Sources */,
 				0375570B27B6A047009A12E7 /* ViewController.swift in Sources */,
 				034724F727B7D8270094E2C4 /* ChatViewModel.swift in Sources */,

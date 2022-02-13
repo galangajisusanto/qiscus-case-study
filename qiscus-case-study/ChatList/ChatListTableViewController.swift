@@ -18,9 +18,12 @@ class ChatListTableViewController: UITableViewController {
     }
     let chatListViewModel = ChatListViewModel()
     var cancellable: Cancellable?
+    var errorCancellable: Cancellable?
+    
     
     deinit {
         cancellable = nil
+        errorCancellable = nil
     }
     
     override func viewDidLoad() {
@@ -28,8 +31,11 @@ class ChatListTableViewController: UITableViewController {
         setupObserver()
         setupCell()
         setupNavigation()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         chatListViewModel.loadChatRoom()
-
     }
     
     private func setupCell() {
@@ -38,8 +44,15 @@ class ChatListTableViewController: UITableViewController {
     }
     
     private func setupObserver() {
-        cancellable = chatListViewModel.$rooms.sink(){ rooms in
-            self.rooms = rooms
+        cancellable = chatListViewModel.$rooms.dropFirst().sink(){ rooms in
+            if !rooms.isEmpty {
+                self.rooms = rooms
+            }
+        }
+        errorCancellable = chatListViewModel.$error.dropFirst().sink(){ error in
+            let alert = UIAlertController(title: "Failed", message: String(describing: error?.message ?? ""), preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+            self.present(alert, animated: true)
         }
     }
     

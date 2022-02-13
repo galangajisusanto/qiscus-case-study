@@ -28,7 +28,7 @@ class ChatViewModel {
     
     func loadChatRoom(roomId: String) {
         QiscusCore.shared.getChatRoomWithMessages(roomId: roomId, onSuccess: { [weak self] (room,comments) in
-            self?.comments = comments
+            self?.comments = comments.reversed()
         }) { [weak self] (error) in
             self?.error = error
         }

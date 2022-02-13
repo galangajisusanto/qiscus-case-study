@@ -77,7 +77,7 @@
                         <constraint firstAttribute="trailing" secondItem="kg4-ZJ-Qa9" secondAttribute="trailing" id="vjp-bv-YOD"/>
                     </constraints>
                 </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="xbo-8q-nzZ">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="xbo-8q-nzZ">
                     <rect key="frame" x="0.0" y="44" width="414" height="730"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>

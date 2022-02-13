@@ -13,6 +13,7 @@ class ChatViewController: UIViewController {
     
     var room: RoomModel?
     var cancellable: Cancellable?
+    var errroCancellable: Cancellable?
     let chatViewModel = ChatViewModel()
     var comments = [CommentModel]() {
         didSet {
@@ -24,8 +25,9 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var commentTable: UITableView!
     
     deinit {
-      removeRoomDelegate()
-      cancellable = nil
+        removeRoomDelegate()
+        cancellable = nil
+        errroCancellable = nil
     }
     
     override func viewDidLoad() {
@@ -33,22 +35,34 @@ class ChatViewController: UIViewController {
         setRoomDelegate()
         setupObserver()
         setupCommentTable()
+        setupView()
         loadChatRoom()
     }
-
+    
+    private func setupView() {
+        commentTextArea.layer.cornerRadius = 16
+        commentTextArea.layer.masksToBounds = true
+        title = room?.name
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor(named: "PrimaryColor")]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
+        navigationController?.navigationBar.tintColor = UIColor(named: "PrimaryColor")
+    }
+    
     
     private func setupObserver() {
-//        cancellable = chatViewModel.$newComment.sink() { comment in
-//
-//        }
-//        cancellable = chatViewModel.$error.sink() { error in
-//            let alert = UIAlertController(title: "Failed", message: String(describing: error?.message), preferredStyle: .alert)
-//            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-//            self.present(alert, animated: true)
-//        }
         
-        cancellable = chatViewModel.$comments.sink() { comments in
-            self.comments = comments
+        errroCancellable = chatViewModel.$error.dropFirst().sink() { error in
+            let alert = UIAlertController(title: "Failed", message: String(describing: error?.message ?? ""), preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+            self.present(alert, animated: true)
+        }
+        
+        cancellable = chatViewModel.$comments.dropFirst().sink() { comments in
+            if !comments.isEmpty {
+                self.comments = comments
+                let indexPath = IndexPath(item: comments.count - 1, section: 0)
+                self.commentTable.scrollToRow(at: indexPath, at: .bottom, animated: true)
+            }
         }
         
     }
@@ -56,6 +70,10 @@ class ChatViewController: UIViewController {
     private func setupCommentTable() {
         commentTable.delegate = self
         commentTable.dataSource = self
+        let rightTextUiNib = UINib(nibName: "\(RightTextTableViewCell.self)", bundle: nil)
+        commentTable.register(rightTextUiNib, forCellReuseIdentifier: RightTextTableViewCell.identifier)
+        let leftTextUiNib = UINib(nibName: "\(LeftTextTableViewCell.self)", bundle: nil)
+        commentTable.register(leftTextUiNib, forCellReuseIdentifier: LeftTextTableViewCell.identifier)
     }
     
     @IBAction func attachmentButtonTapped(_ sender: UIButton) {
@@ -76,13 +94,13 @@ class ChatViewController: UIViewController {
     
     func setRoomDelegate(){
         if let room = self.room {
-             room.delegate = self
-         }
+            room.delegate = self
+        }
     }
-
+    
     func removeRoomDelegate() {
         if let room = self.room {
-             room.delegate = nil
+            room.delegate = nil
         }
     }
     
@@ -90,7 +108,6 @@ class ChatViewController: UIViewController {
         guard let roomId = room?.id else { return }
         chatViewModel.loadChatRoom(roomId: roomId)
     }
-
 }
 
 extension ChatViewController: UITableViewDelegate {
@@ -103,21 +120,25 @@ extension ChatViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {
-                return UITableViewCell(style: .default, reuseIdentifier: "cell")
-            }
-            return cell
-        }()
         let comment = comments[indexPath.row]
         if comment.isMyComment() {
-            cell.textLabel?.text = "Pesanku: \(comment.message)"
+            let reuseCell = tableView.dequeueReusableCell(withIdentifier: RightTextTableViewCell.identifier, for: indexPath)
+            if let cell = reuseCell as? RightTextTableViewCell {
+                cell.comment = comment
+                cell.selectionStyle = .none
+                return cell
+            }
         } else {
-            cell.textLabel?.text = "Pesanmu: \(comment.message)"
+            let reuseCell = tableView.dequeueReusableCell(withIdentifier: LeftTextTableViewCell.identifier, for: indexPath)
+            if let cell = reuseCell as? LeftTextTableViewCell {
+                cell.comment = comment
+                cell.selectionStyle = .none
+                return cell
+            }
         }
-        return cell
+        
+        return UITableViewCell()
     }
-    
     
 }
 
@@ -125,12 +146,13 @@ extension ChatViewController: UITableViewDataSource {
 extension ChatViewController: QiscusCoreRoomDelegate {
     func onMessageReceived(message: CommentModel) {
         comments.append(message)
-        let indexPath = IndexPath(item: comments.count, section: 0)
+        let indexPath = IndexPath(item: comments.count - 1, section: 0)
         commentTable.reloadRows(at: [indexPath], with: .top)
+        commentTable.scrollToRow(at: indexPath, at: .bottom, animated: true)
     }
     
     func onMessageUpdated(message: CommentModel) {
-        
+        reloadMessage(message)
     }
     
     func didComment(comment: CommentModel, changeStatus status: CommentStatus) {
@@ -138,11 +160,11 @@ extension ChatViewController: QiscusCoreRoomDelegate {
     }
     
     func onMessageDelivered(message: CommentModel) {
-        
+        reloadMessage(message)
     }
     
     func onMessageRead(message: CommentModel) {
-        
+        reloadMessage(message)
     }
     
     func onMessageDeleted(message: CommentModel) {
@@ -161,5 +183,12 @@ extension ChatViewController: QiscusCoreRoomDelegate {
         
     }
     
-
+    private func reloadMessage(_ message: CommentModel) {
+        let index = comments.firstIndex{$0.id == message.id}
+        guard let commnetIndex = index else { return }
+        let indexPath = IndexPath(item: commnetIndex, section: 0)
+        commentTable.reloadRows(at: [indexPath], with: .none)
+    }
+    
+    
 }
