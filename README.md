@@ -14,8 +14,7 @@ This application is sample app used qiscus core sdk. You can chat with other use
 - Reactive programming with combine
 - Build UI by using XiB
 
-###Note for testing the app 
-
+### Note for testing the app 
 ```
 
 You can test chatting schema by using my account to login in this app.
