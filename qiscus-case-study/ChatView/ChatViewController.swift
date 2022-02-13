@@ -59,12 +59,28 @@ class ChatViewController: UIViewController {
         
         cancellable = chatViewModel.$comments.dropFirst().sink() { comments in
             if !comments.isEmpty {
-                self.comments = comments
-                let indexPath = IndexPath(item: comments.count - 1, section: 0)
-                self.commentTable.scrollToRow(at: indexPath, at: .bottom, animated: true)
+                self.reloadTable(comments: comments)
+                let lastComment = self.comments.last
+                
+                if lastComment?.status == .delivered {
+                    guard let roomId = self.room?.id else {return}
+                    guard let commentId = lastComment?.id else {return}
+                    self.markAsRead(roomId: roomId , commentId: commentId)
+                }
+                
             }
         }
         
+    }
+    
+    private func reloadTable(comments: [CommentModel]) {
+        self.comments = comments
+        let indexPath = IndexPath(item: comments.count - 1, section: 0)
+        self.commentTable.scrollToRow(at: indexPath, at: .bottom, animated: true)
+    }
+    
+    private func markAsRead(roomId: String, commentId: String) {
+        QiscusCore.shared.markAsRead(roomId: roomId, commentId: commentId)
     }
     
     private func setupCommentTable() {
