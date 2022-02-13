@@ -25,4 +25,24 @@ extension CommentModel {
         let date = formatter.date(from: self.timestamp)
         return date
     }
+    
+    func dateTime() -> String {
+        let date = date()
+        var result = ""
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "d/MM"
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "h:mm a"
+        if let convertDate = date {
+            if Calendar.current.isDateInToday(convertDate){
+                result = timeFormatter.string(from: convertDate)
+            }
+            else if Calendar.current.isDateInYesterday(convertDate) {
+                result = "Yesterday"
+            }else{
+                result = dateFormatter.string(from: convertDate)
+            }
+        }
+        return result
+    }
 }

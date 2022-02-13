@@ -24,7 +24,7 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MZH-9D-ZQQ">
                     <rect key="frame" x="176" y="94" width="62" height="29"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                    <nil key="textColor"/>
+                    <color key="textColor" red="0.27450980390000002" green="0.61503559350000003" blue="0.33720499279999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SUg-Ub-xZs">
@@ -55,7 +55,9 @@
                         <constraint firstAttribute="width" constant="100" id="kQE-NR-In0"/>
                     </constraints>
                     <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="filled" title="Login"/>
+                    <buttonConfiguration key="configuration" style="filled" title="Login">
+                        <color key="baseBackgroundColor" name="PrimaryColor"/>
+                    </buttonConfiguration>
                     <connections>
                         <action selector="loginButtonTapped:" destination="-1" eventType="touchUpInside" id="J72-y4-TDT"/>
                     </connections>
@@ -103,6 +105,9 @@
         </view>
     </objects>
     <resources>
+        <namedColor name="PrimaryColor">
+            <color red="0.27450980392156865" green="0.61568627450980395" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

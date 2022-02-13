@@ -26,20 +26,32 @@ class ChatListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupObserver()
+        setupCell()
+        setupNavigation()
         chatListViewModel.loadChatRoom()
+
+    }
+    
+    private func setupCell() {
+        let uiNib = UINib(nibName: "\(ChatListTableViewCell.self)", bundle: nil)
+        tableView.register(uiNib, forCellReuseIdentifier: ChatListTableViewCell.identifier)
+    }
+    
+    private func setupObserver() {
+        cancellable = chatListViewModel.$rooms.sink(){ rooms in
+            self.rooms = rooms
+        }
+    }
+    
+    private func setupNavigation() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped))
+        navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "PrimaryColor")
     }
     
     @objc func logoutTapped() {
         QiscusCore.clearUser { (error) in
             let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate
             sceneDelegate?.auth()
-        }
-    }
-    
-    private func setupObserver() {
-        cancellable = chatListViewModel.$rooms.sink(){ rooms in
-            self.rooms = rooms
         }
     }
     
@@ -52,16 +64,17 @@ class ChatListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {
-                return UITableViewCell(style: .default, reuseIdentifier: "cell")
-            }
-            return cell
-        }()
         let room = rooms[indexPath.row]
-        cell.textLabel?.text = room.name
-        cell.detailTextLabel?.text = "\(room.unreadCount) message unread"
-        return cell
+        let reuseCell = tableView.dequeueReusableCell(withIdentifier: ChatListTableViewCell.identifier, for: indexPath)
+        if let cell = reuseCell as? ChatListTableViewCell {
+            cell.chatRoom = room
+            return cell
+        }
+        return UITableViewCell()
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(90)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

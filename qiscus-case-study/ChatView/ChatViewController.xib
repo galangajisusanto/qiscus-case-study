@@ -30,6 +30,7 @@
                                 <constraint firstAttribute="width" constant="44" id="mVF-aH-Cfj"/>
                                 <constraint firstAttribute="height" constant="44" id="noH-d2-7Vw"/>
                             </constraints>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain">
                                 <imageReference key="image" image="paperplane.circle.fill" catalog="system" symbolScale="large"/>
@@ -46,6 +47,7 @@
                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="iMB-WX-9el"/>
                                 <constraint firstAttribute="height" constant="44" id="yUJ-DY-idw"/>
                             </constraints>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain">
                                 <imageReference key="image" image="doc.on.doc.fill" catalog="system" symbolScale="large"/>
@@ -62,7 +64,7 @@
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemGreenColor"/>
+                    <color key="backgroundColor" red="0.27499562500000002" green="0.61503559350000003" blue="0.33720499279999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
                         <constraint firstItem="9bO-dq-1Zp" firstAttribute="leading" secondItem="SR6-Ma-3PH" secondAttribute="leading" id="4qn-wD-8rI"/>
                         <constraint firstItem="Hai-Fr-gRg" firstAttribute="top" secondItem="SR6-Ma-3PH" secondAttribute="top" constant="8" id="7Cb-yV-Zxf"/>
@@ -102,9 +104,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
