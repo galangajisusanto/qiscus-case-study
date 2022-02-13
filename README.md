@@ -1,9 +1,8 @@
 ## Qiscus
-This application is sample app using qiscus core sdk. You can chatting with other user using 1 on 1 cahat room in this app.
-
+This application is sample app used qiscus core sdk. You can chat with other user using 1 on 1 chat room and only send text message.
 
 ### Library Used
-- [QiscusCore](https://github.com/qiscus/QiscusCore-iOS)
+- [QiscusCore](https://github.com/qiscus/QiscusCore-iOS) : setUser, getAllChatRooms, sendMessage, getChatRoomWithMessages, markAsRead, clearUser
 
 ### Feature
 - Login
@@ -13,7 +12,7 @@ This application is sample app using qiscus core sdk. You can chatting with othe
 ### Stack tech
 - MVVM design architecture
 - Reactive programming with combine
-- Buid UI using XiB
+- Build UI by using XiB
 
 ###Note for testing the app 
 
